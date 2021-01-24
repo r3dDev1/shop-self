@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-details.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <div class="container">
+            <div class="card__header">
+                <h1><%= product.title %></h1>
+            </div>
+            <div class="card__img__container">
+                <img class="product__img" src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+            </div>
+            <div class="card__content">
+                <h2>$<%= product.price %></h2>
+                <p><%= product.description %></p>
+            </div>
+            <div class="card__links">
+                <div class="card__link">
+                    <a href="/products">Back To Products</a>
+                </div>
+                <div class="card__link">
+                    <a href="#">Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../includes/script.ejs') %>
+
+</body>

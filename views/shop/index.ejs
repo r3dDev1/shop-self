@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+
+    <main>
+        <div class="container-fluid">
+            <% if (products.length > 0) { %>
+            <div class="row">
+                <% for (let product of products) { %>
+                <div class="col-sm-4 product__card">
+                    <div class="card__header">
+                        <h1><%= product.title %></h1>
+                    </div>
+                    <div class="card__img__container">
+                        <img class="product__img" src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+                    </div>
+                    <div class="card__content">
+                        <h2>$<%= product.price %></h2>
+                        <p><%= product.description %></p>
+                    </div>
+                    <div class="card__links">
+                        <div class="card__link">
+                            <a href="/products/<%= product.productID %>" >Details</a>
+                        </div>
+                        <div class="card__link">
+                            <%- include('../includes/cart-button.ejs', {product: product}) %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <% } else { %>
+            <h1>Product not found</h1>
+            <% } %>
+        </div>
+    </main>
+
+    <%- include('../includes/script.ejs') %>
+
+</body>
